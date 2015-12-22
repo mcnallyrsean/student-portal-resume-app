@@ -1,27 +1,28 @@
-class Student
+class Profile
   attr_accessor :first_name, :last_name, :email, :phone, :short_bio, :twitter, :blog_url, :resume_url, :github_url, :photo_url, :user_id, :educations, :experiences, :capstones, :skills
-  def initialize(p)
-    @first_name = p['first_name']
-    @last_name = p['last_name']
-    @email = p['email']
-    @phone = p['phone']
-    @short_bio = p['short_bio']
-    @twitter = p['twitter']
-    @blog_url = p['blog_url']
-    @resume_url = p['resume_url']
-    @github_url = p['github_url']
-    @photo_url = p['photo_url']
-    @user_id = p['user_id']
-    @capstones = Capstone.all
-    @educations = Education.all
-    @experiences = Experience.all
-    @skills = Skill.all
+
+  def initialize(pro)
+    @first_name = pro['first_name']
+    @last_name = pro['last_name']
+    @email = pro['email']
+    @phone = pro['phone']
+    @short_bio = pro['short_bio']
+    @twitter = pro['twitter']
+    @blog_url = pro['blog_url']
+    @resume_url = pro['resume_url']
+    @github_url = pro['github_url']
+    @photo_url = pro['photo_url']
+    @user_id = pro['user_id']
+    @capstones = Capstone.all(@user_id)
+    @educations = Education.all(@user_id)
+    @experiences = Experience.all(@user_id)
+    @skills = Skill.all(@user_id)
   end
 
   def self.find_by(options)
     id = options[:id]
-    student_data  = Unirest.get("http://172.28.113.208:3000/students.json").body
-    Student.new(profile_data)
+    profile_data  = Unirest.get("http://172.28.113.208:3000/students/#{id}.json").body
+    Profile.new(profile_data)
   end
 
   def update(options)
