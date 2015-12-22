@@ -11,5 +11,10 @@ class Education
     @student_id = edu['student_id']
   end
 
+  def self.all(id)
+    educations  = Unirest.get("http://172.28.113.208:3000/students/#{id}.json").body['educations']
+    educations
+  end
+
 
 end
