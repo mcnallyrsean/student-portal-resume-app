@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def show
-    @profile = Unirest.get("http://172.28.113.208:3000/students/#{params[:id]}.json").body
+    @profile = Profile.find_by(id: params[:id])
   end
 
   def create
