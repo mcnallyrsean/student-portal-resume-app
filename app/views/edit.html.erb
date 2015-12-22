@@ -1,0 +1,26 @@
+<%= form_tag "/profiles/#{@profile['id']}", method: :patch do %>
+   <div>
+     <%= label_tag :name %>
+     <%= text_field_tag :name, @profile["name"] %>
+   </div>
+   <div>
+     <%= label_tag :description %>
+     <%= text_field_tag :description, @profile["description"] %>
+   </div>
+   <div>
+     <%= label_tag :url %>
+     <%= text_field_tag :url, @profile["url"] %>
+   </div>
+   <div>
+     <%= label_tag :screen_shot %>
+     <%= text_field_tag :screen_shot, @profile["url"] %>
+   </div>
+   <div>
+     <%= label_tag :student_id %>
+     <%= text_field_tag :student_id, @profile["url"] %>
+   </div>
+   <div>
+     <%= submit_tag "Submit" %>
+   </div>
+ <% end %> 
+

@@ -1,3 +1,21 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "font-awesome";
+
+.contact_info{
+  text-align: center;
+  font-size: 20px;
+}
+
+.view_resume{
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+.media-object{
+  height: 64px;
+  width: 64px;
+}
