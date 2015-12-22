@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def show
-    @profile = Unirest.get("http://172.28.113.208:3000/profiles/#{params[:id]}.json").body
+    @profile = Unirest.get("http://172.28.113.208:3000/students/#{params[:id]}.json").body
   end
 
   def create
@@ -38,3 +38,5 @@ class ProfilesController < ApplicationController
     redirect_to "/profiles/#{@profile['id']}"
   end
 end
+
+
