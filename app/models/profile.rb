@@ -1,17 +1,16 @@
-class Profile
-  attr_accessor 
+class Student
+  attr_accessor :first_name, :last_name, :email, :phone, :short_bio, :twitter, :blog_url, :resume_url, :github_url, :photo_url, :user_id, :educations, :experiences, :capstones, :skills
   def initialize(p)
     @capstones = Capstone.all
     @educations = Education.all
     @experiences = Experience.all
     @skills = Skill.all
-  ##@user_id = User.id
   end
 
   def self.find_by(options)
     id = options[:id]
-    profile_data = Unirest.get("#AddressOfAPI").body
-    Profile.new(profile_data)
+    student_data  = Unirest.get("http://172.28.113.208:3000/students.json").body
+    Student.new(profile_data)
   end
 
   def update(options)
@@ -22,4 +21,5 @@ class Profile
       parameters: options
     ).body
     ## Profile.new(data returned from the hash)
+  end
 end
