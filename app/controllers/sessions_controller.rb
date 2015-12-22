@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     email = params[:email]
     password = params[:password]
 
-    student = Unirest.get("http://172.28.113.208:3000/students.json",
+    student = Unirest.get("http://172.28.113.208:3000/studentssignin.json",
       headers:{ "Accept" => "application/json"},
       parameters: {email: email, password: password}
       ).body
