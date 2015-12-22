@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if session[:email] %>
-          <li><%= link_to 'Sign Out', method: :delete %></li>
+          <li><%= link_to 'Sign Out', "/sign_out", method: :delete %></li>
         <% else %>
           <li><%= link_to 'Sign In', "/sign_in" %></li>
         <% end %>
