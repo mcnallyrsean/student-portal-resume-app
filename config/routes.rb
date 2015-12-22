@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
   get '/profiles/new' => 'profiles#new'
   post '/profiles' => 'profiles#create'
   get '/profiles/:id' => 'profiles#show'
