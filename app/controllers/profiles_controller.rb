@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def show
-    @profile = Unirest.get("http://localhost:3000/profiles/#{params[:id]}.json").body
+    @profile = Unirest.get("http://172.28.113.208:3000/profiles/#{params[:id]}.json").body
   end
 
   def create
@@ -20,12 +20,12 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Unirest.get("http://localhost:3000/profiles/#{params[:id]}.json").body 
+    @profile = Unirest.get("http://172.28.113.208:3000/profiles/#{params[:id]}.json").body 
   end
 
   def update
     @profile = Unirest.patch(
-      "http://localhost:3000/profiles/#{params[:id]}.json",
+      "http://172.28.113.208:3000/profiles/#{params[:id]}.json",
       headers: {"Accept" => "application/json"},
       parmeters: {
         name: params[:name],
