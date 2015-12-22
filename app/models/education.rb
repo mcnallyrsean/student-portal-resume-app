@@ -12,8 +12,9 @@ class Education
   end
 
   def self.all(id)
-    educations  = Unirest.get("http://172.28.113.208:3000/students/#{id}.json").body['educations']
-    educations
+    education_data  = Unirest.get("http://172.28.113.208:3000/students/#{id}.json").body['educations']
+    educations = Educations.new(education_data)
+    education_data 
   end
 
 
