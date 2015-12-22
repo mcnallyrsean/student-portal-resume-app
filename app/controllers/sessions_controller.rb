@@ -11,18 +11,19 @@ class SessionsController < ApplicationController
       parameters: {email: email, password: password}
       ).body
 
-    if student
+    if student["id"]
       session[:email] = email
       session[:password] = password
-      redirect_to '/profiles'
+      redirect_to "/profiles/#{student["id"]}"
       flash[:success] = "You have successfully signed in!"
     else
-      flash[:warning] = "Incorrect username/password combination"
+      flash[:danger] = "Incorrect username/password combination"
       render 'new'
     end
     
   end
 
   def destroy
+
   end
 end
